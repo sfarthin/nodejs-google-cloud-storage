@@ -1,4 +1,4 @@
-# Direct Google Cloud Storage Uploads.
+## Direct Google Cloud Storage Uploads with Signed Urls
 
 Allow uploads directly from the browser to Google Cloud Storage while controlling access with Nodejs and signed urls. **NOTE:** you need to create a google service account.
 
@@ -27,7 +27,7 @@ For more advanced examples with xhr uploads, see [https://github.com/sfarthin/cr
 
 ## Reference
 
-First create your cloudStorage object with your google information.
+First create your CloudStorage instance with your gcs information.
 
 	var CloudStorage = require("gcs-signed-urls")("*****@developer.gserviceaccount.com", "my_bucket_name", "/path/to/google-services-private-key.pem")
 
