@@ -1,5 +1,3 @@
-## Direct Google Cloud Storage Uploads with Signed Urls
-
 Allow uploads directly from the browser to Google Cloud Storage while controlling access with Nodejs and signed urls. **NOTE:** you need to create a google service account.
 
 Simple example: [http://ancient-anchorage-2534.herokuapp.com/](http://ancient-anchorage-2534.herokuapp.com/).
