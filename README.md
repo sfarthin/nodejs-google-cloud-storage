@@ -12,24 +12,14 @@ For more advanced examples with xhr uploads, see [https://github.com/sfarthin/cr
 2. Click credentials
 3. Create new client ID
 4. Create a service account
+
 #### Incorperate service account.
 5. After you create a service account you should recieve a .p12 file. Convert the .p12 (key and certificate in one) to an ascii formatted .pem which can be read as text. Use this command:
 
 	openssl pkcs12 -in *.p12 -out google-services-private-key.pem -nodes -clcerts
 
 6. The password is always "notasecret"
-7. Now you can use this library
-
-	CloudStorage = require("gcs-signed-urls")("*****@developer.gserviceaccount.com", "my_bucket_name", "/path/to/google-services-private-key.pem")
-	
-	// Upload directly
-	CloudStorage.upload("/path/to/file", "my_gcs_key");
-	
-	// generate form fields to allow upload from HTML form
-	var formFields = CloudStorage.uploadRequest("somefilename.txt", "my_gcs_key2")
-
-
-See an example with (xhr upload and image manipulation)[https://github.com/sfarthin/crop-rotate-and-sample-in-browser].
+7. Your all set! Now you will be able to run the [example app](https://github.com/sfarthin/nodejs-google-cloud-storage/blob/master/example/app.js).
 
 
 ## Reference
@@ -39,10 +29,14 @@ First create your cloudStorage object with your google information.
 	var CloudStorage = require("gcs-signed-urls")("*****@developer.gserviceaccount.com", "my_bucket_name", "/path/to/google-services-private-key.pem")
 
 ##### uploadRequest(filename, key, isAttachment, customFields)
-This method is used to create a form for the user to upload to Google Cloud Storage. After running uploadRequest, it expires in one hour. It returns an object where each item represents a form input.
+This method creates an object representing the fields of an HTML form.
+
 **filename** - Filename given to the file uploaded. Mime type is determined given the extension.
-**key** - The Google cloud key.
+
+**key** - The Google Cloud key.
+
 **isAttachment** - This sets content disposition to be an attachment, causing the browser to download the file (with the given filename) rather than show the file inside the browser.
+
 **customFields** - Set custom "x-goog-meta-" headers.
 
 	<form action="http://my_bucket.storage.googleapis.com" method="post" enctype="multipart/form-data">
