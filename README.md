@@ -1,4 +1,4 @@
-# Nodejs Google Cloud Storage using Signed Urls.
+# Direct Google Cloud Storage Uploads.
 
 Allow uploads directly from the browser to Google Cloud Storage while controlling access with Nodejs and signed urls. **NOTE:** you need to create a google service account.
 
@@ -19,7 +19,8 @@ For more advanced examples with xhr uploads, see [https://github.com/sfarthin/cr
 	openssl pkcs12 -in *.p12 -out google-services-private-key.pem -nodes -clcerts
 
 6. The password is always "notasecret"
-7. Your all set! Now you will be able to run the [example app](https://github.com/sfarthin/nodejs-google-cloud-storage/blob/master/example/app.js).
+7. npm install gcs-signed-urls
+8. Your all set! Now you will be able to run the [example app](https://github.com/sfarthin/nodejs-google-cloud-storage/blob/master/example/app.js).
 
 
 ## Reference
@@ -28,7 +29,7 @@ First create your cloudStorage object with your google information.
 
 	var CloudStorage = require("gcs-signed-urls")("*****@developer.gserviceaccount.com", "my_bucket_name", "/path/to/google-services-private-key.pem")
 
-##### uploadRequest(filename, key, isAttachment, customFields)
+### uploadRequest(filename, key, isAttachment, customFields)
 This method creates an object representing the fields of an HTML form.
 
 **filename** - Filename given to the file uploaded. Mime type is determined given the extension.
@@ -50,10 +51,10 @@ This method creates an object representing the fields of an HTML form.
 		<input type="submit" value="Upload">
 	</form>
 
-##### upload(filename, key, isAttachment, customFields, callback)
+### upload(filename, key, isAttachment, customFields, callback)
 Direct upload from Node.js using the same options as uploadRequest.
 
-##### defaultAcl: function(acl, callback)
+### defaultAcl: function(acl, callback)
 Takes an acl option and sets that as the default acl of an object. The options are:
 project-private
 private
@@ -65,16 +66,16 @@ bucket-owner-full-control
 
 See https://developers.google.com/storage/docs/accesscontrol#extension
 
-##### cors: function(xml, callback)
+### cors: function(xml, callback)
 Sets the  xml cors policy
 
-##### exisits: function(key, callback)
-###### metaData: function(key, callback)
-##### makePrivate: function(key, callback)
-##### makePublic: function(key, callback)
-##### getPublicUrl: function(key)
-##### getPrivateUrl: function(key)
-##### remove: function(key, callback)
+### exisits: function(key, callback)
+### metaData: function(key, callback)
+### makePrivate: function(key, callback)
+### makePublic: function(key, callback)
+### getPublicUrl: function(key)
+### getPrivateUrl: function(key)
+### remove: function(key, callback)
 
 ## Running tests or example
 
