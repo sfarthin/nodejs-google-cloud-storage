@@ -7,6 +7,9 @@ Simple example: [http://ancient-anchorage-2534.herokuapp.com/](http://ancient-an
 For more advanced examples with xhr uploads, see [https://github.com/sfarthin/crop-rotate-and-sample-in-browser](https://github.com/sfarthin/crop-rotate-and-sample-in-browser).
 
 ## Setup
+
+	npm install gcs-signed-urls
+
 #### Creating a Service Account
 1. Visit the [Google Developer Console](https://console.developers.google.com/)
 2. Click credentials
@@ -19,8 +22,7 @@ For more advanced examples with xhr uploads, see [https://github.com/sfarthin/cr
 	openssl pkcs12 -in *.p12 -out google-services-private-key.pem -nodes -clcerts
 
 6. The password is always "notasecret"
-7. npm install gcs-signed-urls
-8. Your all set! Now you will be able to run the [example app](https://github.com/sfarthin/nodejs-google-cloud-storage/blob/master/example/app.js).
+7. Your all set! Now you will be able to run the [example app](https://github.com/sfarthin/nodejs-google-cloud-storage/blob/master/example/app.js).
 
 
 ## Reference
