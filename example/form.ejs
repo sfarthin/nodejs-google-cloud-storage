@@ -1,0 +1,16 @@
+<h4>Choose a file, click Upload, then after the upload finishes you may view it by clicking the link below. A file will be uploaded with the key "<%=fields.key%>".</h4>
+<form action="https://<%=fields.bucket%>.storage.googleapis.com" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="key" value="<%=fields.key%>">
+	<input type="hidden" name="bucket" value="<%=fields.bucket%>">
+	<input type="hidden" name="GoogleAccessId" value="<%=fields.GoogleAccessId%>">
+	<input type="hidden" name="policy" value="<%=fields.policy%>">
+	<input type="hidden" name="signature" value="<%=fields.signature%>">
+	<input type="hidden" name="Content-Type" value="<%=fields['Content-Type']%>">
+
+	<input name="file" type="file">
+	<input type="submit" value="Upload">
+</form>
+
+<br />
+
+<a href="https://<%=fields.bucket%>.storage.googleapis.com/<%=fields.key%>" target="_new">View https://<%=fields.bucket%>.storage.googleapis.com/<%=fields.key%></a>

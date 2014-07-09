@@ -1,0 +1,16 @@
+//- https://groups.google.com/forum/#!msg/google-appengine-stackoverflow/t9h-hexqWXM/6UbO_EXA0LsJ
+| <?xml version="1.0" encoding="UTF-8"?>
+CorsConfig
+	Cors
+		Origins
+			Origin *
+		Methods
+			Method GET
+			Method HEAD
+			Method PUT
+			Method POST
+			Method DELETE
+		ResponseHeaders
+			ResponseHeader *
+		//- Cache breaks things.
+		MaxAgeSec 1
