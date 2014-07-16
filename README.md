@@ -1,4 +1,6 @@
-Allow uploads directly from the browser to Google Cloud Storage while controlling access with Nodejs and signed urls. **NOTE:** you need to create a google service account.
+I created this NPM module so that I can create web apps that allow users to upload directly to Google Cloud Storage. Using <a href="https://developers.google.com/storage/docs/accesscontrol#Signed-URLs" target="_blank">Signed URLs</a> I am able to control access with Node.js and a private key. Because there is not a Node.js SDK for Google Cloud Storage, the cryptographic signatures were coded using Node.js's crypto module to Google's specification. This integration alleviates much of the maintenance required in storing and handing file uploads in web apps while at the same time not complicating the uploading process by acting as a middleman between the user and Google Cloud Storage.
+
+ **NOTE:** you need to create a google service account.
 
 Simple example: [http://ancient-anchorage-2534.herokuapp.com/](http://ancient-anchorage-2534.herokuapp.com/).
 
