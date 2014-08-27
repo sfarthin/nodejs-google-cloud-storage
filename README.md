@@ -4,7 +4,7 @@ I created this NPM module so that I can create web apps that allow users to uplo
 
  **NOTE:** you need to create a google service account.
 
-Simple example: [http://ancient-anchorage-2534.herokuapp.com/](http://ancient-anchorage-2534.herokuapp.com/).
+Simple example: [http://gcs-signed-urls.herokuapp.com/](http://gcs-signed-urls.herokuapp.com/).
 
 For more advanced examples with xhr uploads, see [https://github.com/sfarthin/crop-rotate-and-sample-in-browser](https://github.com/sfarthin/crop-rotate-and-sample-in-browser).
 
