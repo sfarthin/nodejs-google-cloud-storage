@@ -31,7 +31,7 @@ For more advanced examples with xhr uploads, see [https://github.com/sfarthin/cr
 
 First create your CloudStorage instance with your gcs information.
 
-	var CloudStorage = require("gcs-signed-urls")("*****@developer.gserviceaccount.com", "my_bucket_name", "/path/to/google-services-private-key.pem")
+	var CloudStorage = require("gcs-signed-urls")("/path/to/google-services-private-key.pem", "*****@developer.gserviceaccount.com", "my_bucket_name")
 
 You can also store gcs information in environment variables so you do not need to specify it in your application.
 
