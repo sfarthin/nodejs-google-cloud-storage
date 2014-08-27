@@ -1,3 +1,5 @@
+# Google Cloud Storage Signed URLs for Node.js
+
 I created this NPM module so that I can create web apps that allow users to upload directly to Google Cloud Storage. Using <a href="https://developers.google.com/storage/docs/accesscontrol#Signed-URLs" target="_blank">Signed URLs</a> I am able to control access with Node.js and a private key. Because there is not a Node.js SDK for Google Cloud Storage, the cryptographic signatures were coded using Node.js's crypto module to Google's specification. This integration alleviates much of the maintenance required in storing and handing file uploads in web apps while at the same time not complicating the uploading process by acting as a middleman between the user and Google Cloud Storage.
 
  **NOTE:** you need to create a google service account.
@@ -30,6 +32,16 @@ For more advanced examples with xhr uploads, see [https://github.com/sfarthin/cr
 First create your CloudStorage instance with your gcs information.
 
 	var CloudStorage = require("gcs-signed-urls")("*****@developer.gserviceaccount.com", "my_bucket_name", "/path/to/google-services-private-key.pem")
+
+You can also store gcs information in environment variables so you do not need to specify it in your application.
+
+	var CloudStorage = require("gcs-signed-urls")()
+
+Set variables like this:
+
+	$ export GOOGLE_SERICES_EMAIL=*****@developer.gserviceaccount.com
+	$ export GCS_STORAGE_BUCKET=my-bucket
+	$ export GCS_PRIVATE_KEY=`cat path/to/google-services-private-key.pem`
 
 ### uploadRequest(filename, key, isAttachment, customFields)
 This method creates an object representing the fields of an HTML form.
@@ -81,18 +93,16 @@ Sets the  xml cors policy
 
 ## Running tests or example
 
-Create config.js in the root.
+The tests and example require environoment variables to be set.
 	
-	module.exports = {
-		"storageBucket": 	"google-storage-bucket-name",
-		"servicesEmail": 	"*******@developer.gserviceaccount.com",
-		"privateKey": 		"/path/to/google-services.pem"
-	};
+	$ export GOOGLE_SERICES_EMAIL=*****@developer.gserviceaccount.com
+	$ export GCS_STORAGE_BUCKET=my-bucket
+	$ export GCS_PRIVATE_KEY=`cat path/to/google-services-private-key.pem`
 	
 To run test
 
 	npm test
-	
+
 To run example on port 3001
 
 	npm start

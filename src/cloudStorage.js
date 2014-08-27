@@ -16,7 +16,14 @@ var rest 		= require("restler"),
 	
 module.exports = function(googleServicesEmail, storageBucket, pathToKey) {
 	
-	var privateKey = fs.readFileSync(pathToKey,"utf8");
+	// Lets pull from environment variables if information is not given
+	googleServicesEmail = googleServicesEmail || process.env.GOOGLE_SERICES_EMAIL,
+	storageBucket = storageBucket || process.env.GCS_STORAGE_BUCKET,
+	privateKey = (pathToKey ? fs.readFileSync(pathToKey,"utf8").toString() : process.env.GCS_PRIVATE_KEY);
+	
+	if(!googleServicesEmail || !storageBucket || !privateKey) {
+		throw "Google Cloud Storage not configured";
+	}
 	
 	return CloudStorage = {
 

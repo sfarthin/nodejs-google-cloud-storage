@@ -1,16 +1,7 @@
 /*jshint expr: true*/
-
-if(!require("fs").existsSync("../config.js")) {
-	
-	var error = 'In order to run unit tests, create ' + require("path").dirname(__dirname) + '/config.js with this information: \n\nmodule.exports = {\n\t"storageBucket": 	"google-storage-bucket-name",\n\t"servicesEmail": 	"*******@developer.gserviceaccount.com",\n\t"privateKey": 		"/path/to/google-services.pem"\n};';;
-	
-	throw error;
-}
-
-var config = require("../config");
 	
 var rest = require("restler"),
-	CloudStorage = require("./cloudStorage")(config.servicesEmail, config.storageBucket, config.privateKey),
+	CloudStorage = require("./cloudStorage")(),
 	_ = require("underscore"),
 	jade = require("jade"),
 	
