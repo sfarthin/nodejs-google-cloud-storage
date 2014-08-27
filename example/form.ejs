@@ -1,4 +1,4 @@
-<h4>Choose a file, click Upload, then after the upload finishes you may view it by clicking the link below. A file will be uploaded with the key "<%=fields.key%>".</h4>
+<h4>Choose a file, click upload, then after the upload finishes you may view it by clicking the link below. A file will be uploaded with the key "<%=fields.key%>".</h4>
 <form action="https://<%=fields.bucket%>.storage.googleapis.com" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="key" value="<%=fields.key%>">
 	<input type="hidden" name="bucket" value="<%=fields.bucket%>">
