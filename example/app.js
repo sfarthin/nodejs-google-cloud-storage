@@ -1,8 +1,7 @@
 var express = require('express'),
 	app  	= express(),
 	
-	config = require("../config"),
-	CloudStorage = require("../src/cloudStorage")(config.servicesEmail, config.storageBucket, config.privateKey);
+	CloudStorage = require("../src/cloudStorage")(require("path").resolve(__dirname, "../google-services-private-key.pem"));
 
 app.engine('ejs', require('ejs').renderFile);
 

@@ -14,7 +14,7 @@ var rest 		= require("restler"),
 	pathLib 	= require("path"),
 	_ 			= require("underscore");
 	
-module.exports = function(googleServicesEmail, storageBucket, pathToKey) {
+module.exports = function(pathToKey, googleServicesEmail, storageBucket) {
 	
 	// Lets pull from environment variables if information is not given
 	googleServicesEmail = googleServicesEmail || process.env.GOOGLE_SERICES_EMAIL,
@@ -22,6 +22,7 @@ module.exports = function(googleServicesEmail, storageBucket, pathToKey) {
 	privateKey = (pathToKey ? fs.readFileSync(pathToKey,"utf8").toString() : process.env.GCS_PRIVATE_KEY);
 	
 	if(!googleServicesEmail || !storageBucket || !privateKey) {
+		console.log(googleServicesEmail, storageBucket, privateKey);
 		throw "Google Cloud Storage not configured";
 	}
 	
