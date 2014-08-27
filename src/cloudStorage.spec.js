@@ -1,7 +1,7 @@
 /*jshint expr: true*/
 
 var rest = require("restler"),
-	CloudStorage = require("./cloudStorage")(require("path").resolve(__dirname, "../google-services-private-key.pem")),
+	CloudStorage = require("./cloudStorage")(process.env.GCS_PRIVATE_KEY || require("path").resolve(__dirname, "../google-services-private-key.pem")),
 	_ = require("underscore"),
 	jade = require("jade"),
 	

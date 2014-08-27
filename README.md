@@ -97,7 +97,7 @@ The tests and example require environoment variables to be set.
 	
 	$ export GOOGLE_SERICES_EMAIL=*****@developer.gserviceaccount.com
 	$ export GCS_STORAGE_BUCKET=my-bucket
-	$ cp google-services.pem ~/path/to/repo/google-services-private-key.pem
+	$ export GCS_PRIVATE_KEY=`cat google-services-private-key.pem`
 	
 To run test
 
@@ -106,3 +106,11 @@ To run test
 To run example on port 3001
 
 	npm start
+
+## Deploying on Heroku
+
+	heroku create
+	heroku config:set GOOGLE_SERICES_EMAIL=***@developer.gserviceaccount.com
+	heroku config:set GCS_STORAGE_BUCKET=my bucket
+	heroku config:set GCS_PRIVATE_KEY=`cat google-services-private-key.pem`
+	git push heroku master
