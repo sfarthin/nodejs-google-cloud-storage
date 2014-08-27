@@ -20,7 +20,9 @@ describe("CloudStorage", function() {
 		testKey5 = "test/test-"+Date.now()+"-5.txt";
 		
 	before(function(done) {
-
+		
+		this.timeout(15*1000);
+		
 		var callback = _.after(2, done);
 
 		// Lets open up our cors so we don't get any errors uploading from the browser.
@@ -41,6 +43,8 @@ describe("CloudStorage", function() {
 	
 	it("can upload a file (as attachment) and confirm that its publicly accessible", function(done) {
 	
+		this.timeout(15*1000);
+		
 		// Lets upload a file as attachment.
 		CloudStorage.upload(filePath, testKey, true, null, function(success) {
 			expect(success).to.be.true;
@@ -67,6 +71,8 @@ describe("CloudStorage", function() {
 	
 	it("can remove an existing file", function(done) {
 		
+		this.timeout(15*1000);
+		
 		// Lets confirm the file exists
 		CloudStorage.exisits(testKey, function(exists) {
 			expect(exists).to.be.true;
@@ -88,7 +94,7 @@ describe("CloudStorage", function() {
 	
 	it("can make a file private and accessible with a private url", function(done) {
 		
-		this.timeout(5*1000);
+		this.timeout(15*1000);
 		
 		// Lets upload a brand new file to make sure nothing is cached.
 		CloudStorage.upload(filePath, testKey2, true, null, function() {
@@ -126,7 +132,7 @@ describe("CloudStorage", function() {
 	
 	it("can make a file private and then public again", function(done) {
 		
-		this.timeout(5*1000);
+		this.timeout(15*1000);
 		
 		// Lets upload a brand new file to make sure nothing is cached.
 		CloudStorage.upload(filePath, testKey3, true, null, function() {
@@ -158,6 +164,8 @@ describe("CloudStorage", function() {
 	
 	it("can upload a file (as inline) and confirm that its publicly accessible and displayed as inline", function(done) {
 	
+		this.timeout(15*1000);
+	
 		// Lets upload a file as attachment.
 		CloudStorage.upload(filePath, testKey4, false, null, function(success) {
 			expect(success).to.be.true;
@@ -181,7 +189,7 @@ describe("CloudStorage", function() {
 	
 	it("can set custom x-goog-meta header", function(done) {
 		
-		this.timeout(5*1000);
+		this.timeout(15*1000);
 	
 		// Lets upload a file as attachment.
 		CloudStorage.upload(filePath, testKey5, false, {example: 'this is some text'}, function(success) {
