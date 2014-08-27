@@ -97,7 +97,7 @@ The tests and example require environoment variables to be set.
 	
 	$ export GOOGLE_SERICES_EMAIL=*****@developer.gserviceaccount.com
 	$ export GCS_STORAGE_BUCKET=my-bucket
-	$ export GCS_PRIVATE_KEY=`cat path/to/google-services-private-key.pem`
+	$ cp google-services.pem ~/path/to/repo/google-services-private-key.pem
 	
 To run test
 
