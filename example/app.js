@@ -1,7 +1,8 @@
 var express = require('express'),
 	app  	= express(),
 	
-	CloudStorage = require("../src/cloudStorage")();
+	config = require("../config"),
+	CloudStorage = require("../src/cloudStorage")(config.servicesEmail, config.storageBucket, config.privateKey);
 
 app.engine('ejs', require('ejs').renderFile);
 

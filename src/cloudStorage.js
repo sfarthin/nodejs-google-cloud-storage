@@ -357,7 +357,6 @@ module.exports = function(googleServicesEmail, storageBucket, pathToKey) {
 				multipart: true,
 				data: uploadRequest
 			}).on('complete', function(err, res) {
-				console.log(err, res.statusCode);
 				callback(res.statusCode == 204 || res.statusCode == 200 ? true : false);
 			});
 		}
