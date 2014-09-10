@@ -17,7 +17,8 @@ describe("CloudStorage", function() {
 		testKey2 = "test/test-"+Date.now()+"-2.txt",
 		testKey3 = "test/test-"+Date.now()+"-3.txt",
 		testKey4 = "test/test-"+Date.now()+"-4.txt",
-		testKey5 = "test/test-"+Date.now()+"-5.txt";
+		testKey5 = "test/test-"+Date.now()+"-5.txt",
+		testKey6 = "test/test-"+Date.now()+"-6.txt";
 		
 	before(function(done) {
 		
@@ -200,6 +201,27 @@ describe("CloudStorage", function() {
 				
 				// Expect to see the meta data in the header
 				expect(res.headers['x-goog-meta-example']).to.equal('this is some text');
+				
+				done();
+
+			});
+			
+		});		
+	});
+	
+	it("can set a Cache-Control", function(done) {
+		
+		this.timeout(15*1000);
+	
+		// Lets upload a file as attachment.
+		CloudStorage.upload(filePath, testKey6, false, {"Cache-Control": 'private, max-age=0, no-transform'}, function(success) {
+			expect(success).to.be.true;
+	
+			// Lets access this file via a public url
+			rest.get(CloudStorage.getPublicUrl(testKey6)).on("complete", function(data, res) {
+				
+				// Expect to see the meta data in the header
+				expect(res.headers['cache-control']).to.equal('private, max-age=0, no-transform');
 				
 				var cleanup = _.after(4, function() { done() });
 				

@@ -313,6 +313,12 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 					"Content-Disposition": "attachment; filename="+pathLib.basename(filename)
 				});
 			}
+			
+			if(customFields && customFields['Cache-Control']) {
+				uploadPolicy.conditions.push({
+					"Cache-Control": customFields['Cache-Control']
+				});
+			}
 		
 			_.each(customFields, function(value, field) {
 				var customField = {};
@@ -335,6 +341,11 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 			if(isAttachment) {
 				request["Content-Disposition"] = "attachment; filename="+pathLib.basename(filename);
 			}
+			
+			if(customFields && customFields['Cache-Control']) {
+				request["Cache-Control"] = customFields["Cache-Control"];
+			}
+				
 		
 			_.each(customFields, function(value, field) {
 				request["x-goog-meta-"+field] = value;
