@@ -51,7 +51,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		
 			var 
 				// This url should expire in one hour
-				expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+				expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 				// Lets put together our policy
 				stringPolicy = "PUT\n" + "\n" + "\n" + expiry + "\n" + "x-goog-acl:"+acl+"\n" + '/'+storageBucket+'/?defaultObjectAcl',
@@ -80,7 +80,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		
 			var 
 				// This url should expire in one hour
-				expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+				expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 				// Lets put together our policy
 				stringPolicy = "PUT\n" + "\n" + "\n" + expiry + "\n" + '/'+storageBucket+'/?cors',
@@ -107,7 +107,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		
 			var 
 				// This url should expire in one hour
-				expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+				expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 				// Lets put together our policy
 				stringPolicy = "GET\n" + "\n" + "\n" + expiry + "\n" + '/'+storageBucket+'/?cors',
@@ -146,7 +146,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		metaData: function(key, callback) {
 			var 
 				// This url should expire in one hour
-				expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+				expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 				// Lets put together our policy
 				stringPolicy = "HEAD\n" + "\n" + "\n" + expiry + "\n" + '/' + storageBucket + '/' + key,
@@ -173,7 +173,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		
 				var 
 					// This url should expire in one hour
-					expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+					expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 					// Lets put together our policy
 					stringPolicy = "PUT\n" + "\n" + "\n" + expiry + "\n" + 
@@ -216,7 +216,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		
 				var 
 					// This url should expire in one hour
-					expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+					expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 					// Lets put together our policy
 					stringPolicy = "PUT\n" + "\n" + "\n" + expiry + "\n" + 
@@ -256,7 +256,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		
 			var 
 				// This url should expire in one hour
-				expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+				expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 				// Lets put together our policy
 				stringPolicy = "GET\n" + "\n" + "\n" + expiry + "\n" + '/' + storageBucket + '/' + key,
@@ -276,7 +276,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		remove: function(key, callback) {
 			var 
 				// This url should expire in one hour
-				expiry 	= new Date(moment().add('hour', 1).format()).getTime(),
+				expiry 	= new Date(moment().add(1, 'hour').format()).getTime(),
 			
 				// Lets put together our policy
 				stringPolicy = "DELETE\n" + "\n" + "\n" + expiry + "\n" + '/' + storageBucket + '/' + key,
@@ -300,7 +300,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 		
 			var mimeType = mime.lookup(filename),
 				uploadPolicy = {
-					"expiration": moment().add('hour', 1).toISOString(),
+					"expiration": moment().add(1, 'hour').toISOString(),
 					"conditions": [
 						{"bucket": storageBucket},
 						{"key": key},
