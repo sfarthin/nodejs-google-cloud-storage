@@ -126,11 +126,11 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 	
 		/**
 		* Check 
-		* @method exisits
+		* @method exists
 		* @param {string} key
 		* @param {function} callback
 		**/	
-		exisits: function(key, callback) {
+		exists: function(key, callback) {
 			rest.get("https://"+storageBucket+".storage.googleapis.com/"+key+"?v="+Date.now()).on("complete", function(data, res) {
 				callback(res.statusCode != 404);
 			});
