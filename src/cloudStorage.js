@@ -27,7 +27,7 @@ module.exports = function(privateKey, googleServicesEmail, storageBucket) {
 	}
 	
 	// Accepts paths too for private key
-	if(!privateKey.match(/BEGIN RSA PRIVATE KEY/))
+	if(!privateKey.match(/BEGIN (RSA )?PRIVATE KEY/))
 		privateKey = fs.readFileSync(privateKey,"utf8").toString();
 	
 	return CloudStorage = {
