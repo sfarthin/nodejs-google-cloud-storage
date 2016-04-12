@@ -1,6 +1,6 @@
 {
   "name": "gcs-signed-urls",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Allow uploads directly from the browser to Google Cloud Storage while controlling access with Nodejs and signed urls.",
   "main": "src/cloudStorage.js",
   "scripts": {
