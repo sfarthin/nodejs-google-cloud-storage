@@ -32,10 +32,10 @@ describe("CloudStorage", function() {
 		
 	})
 
-	it("can check if a file exisits", function(done) {
+	it("can check if a file exists", function(done) {
 		
 		// Lets see if the file exists
-		CloudStorage.exisits(testKey, function(exists) {
+		CloudStorage.exists(testKey, function(exists) {
 			expect(exists).to.be.false;
 			done();
 		});
@@ -51,7 +51,7 @@ describe("CloudStorage", function() {
 			expect(success).to.be.true;
 	
 			// Lets confirm that the file is there
-			CloudStorage.exisits(testKey, function(exists) {
+			CloudStorage.exists(testKey, function(exists) {
 				expect(exists).to.be.true;
 	
 				// Lets access this file via a public url
@@ -75,14 +75,14 @@ describe("CloudStorage", function() {
 		this.timeout(15*1000);
 		
 		// Lets confirm the file exists
-		CloudStorage.exisits(testKey, function(exists) {
+		CloudStorage.exists(testKey, function(exists) {
 			expect(exists).to.be.true;
 			
 			// Lets remove it.
 			CloudStorage.remove(testKey, function() {
 				
 				// Lets make sure its gone.
-				CloudStorage.exisits(testKey, function(exists) {
+				CloudStorage.exists(testKey, function(exists) {
 					expect(exists).to.be.false;
 					done();
 				});
@@ -104,7 +104,7 @@ describe("CloudStorage", function() {
 			CloudStorage.makePrivate(testKey2, function() {
 		
 				// Lets confirm the file exists
-				CloudStorage.exisits(testKey2, function(exists) {
+				CloudStorage.exists(testKey2, function(exists) {
 					expect(exists).to.be.true;
 			
 					// Lets access this file via a public url
