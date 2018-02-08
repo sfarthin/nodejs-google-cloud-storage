@@ -1,23 +1,18 @@
 {
   "name": "gcs-signed-urls",
-  "version": "1.0.3",
-  "description": "Allow uploads directly from the browser to Google Cloud Storage while controlling access with Nodejs and signed urls.",
+  "version": "1.0.4",
+  "description":
+    "Allow uploads directly from the browser to Google Cloud Storage while controlling access with Nodejs and signed urls.",
   "main": "src/cloudStorage.js",
   "scripts": {
     "test": "mocha src/",
-	"start": "node example/app"
+    "start": "node example/app"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/sfarthin/nodejs-google-cloud-storage.git"
   },
-  "keywords": [
-    "google",
-    "cloud",
-    "storage",
-    "nodejs",
-    "file"
-  ],
+  "keywords": ["google", "cloud", "storage", "nodejs", "file"],
   "author": "Steve Farthing",
   "license": "MIT",
   "bugs": {
@@ -25,13 +20,13 @@
   },
   "homepage": "https://github.com/sfarthin/nodejs-google-cloud-storage",
   "dependencies": {
-    "underscore": "^1.6.0",
+    "ejs": "^2.5.7",
+    "express": "^4.5.1",
+    "jade": "^1.3.1",
     "mime": "^1.2.11",
     "moment": "^2.7.0",
-    "jade": "^1.3.1",
-    "restler": "^3.2.2",
-    "express": "^4.5.1",
-    "ejs": "^1.0.0"
+    "quinncia-restler": "^3.4.1",
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "chai": "^1.9.1",
