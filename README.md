@@ -39,7 +39,7 @@ You can also store gcs information in environment variables so you do not need t
 
 Set variables like this:
 
-	$ export GOOGLE_SERICES_EMAIL=*****@developer.gserviceaccount.com
+	$ export GOOGLE_SERVICES_EMAIL=*****@developer.gserviceaccount.com
 	$ export GCS_STORAGE_BUCKET=my-bucket
 	$ export GCS_PRIVATE_KEY=`cat path/to/google-services-private-key.pem`
 
@@ -95,7 +95,7 @@ Sets the  xml cors policy
 
 The tests and example require environoment variables to be set.
 	
-	$ export GOOGLE_SERICES_EMAIL=*****@developer.gserviceaccount.com
+	$ export GOOGLE_SERVICES_EMAIL=*****@developer.gserviceaccount.com
 	$ export GCS_STORAGE_BUCKET=my-bucket
 	$ export GCS_PRIVATE_KEY=`cat google-services-private-key.pem`
 	
@@ -110,7 +110,7 @@ To run example on port 3001
 ## Deploying on Heroku
 
 	heroku create
-	heroku config:set GOOGLE_SERICES_EMAIL=***@developer.gserviceaccount.com
+	heroku config:set GOOGLE_SERVICES_EMAIL=***@developer.gserviceaccount.com
 	heroku config:set GCS_STORAGE_BUCKET=my bucket
 	heroku config:set GCS_PRIVATE_KEY=`cat google-services-private-key.pem`
 	git push heroku master
