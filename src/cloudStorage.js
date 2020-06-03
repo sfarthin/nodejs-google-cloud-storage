@@ -17,7 +17,7 @@ var rest = require('quinncia-restler'),
 module.exports = function(privateKey, googleServicesEmail, storageBucket) {
   // Lets pull from environment variables if information is not given
   (googleServicesEmail =
-    googleServicesEmail || process.env.GOOGLE_SERICES_EMAIL),
+    googleServicesEmail || process.env.GOOGLE_SERVICES_EMAIL),
     (storageBucket = storageBucket || process.env.GCS_STORAGE_BUCKET),
     (privateKey = privateKey || process.env.GCS_PRIVATE_KEY);
 
